@@ -5,23 +5,30 @@
 <title>Add user</title>
 <script type="text/javascript" src="js/user.js"></script>
 </head>
-<body>
+<body onload="getData()">
 <h2>Add User Information</h2>
-<table>
+<!-- <table>
 	<tr>
 	<td>User Name: </td>
-	<td><input type="text" name="name" id="name" placeholder="Enter Name"/></td>
+	<td><input type="text" name="name" id="name" pattern="[A-Za-z0-9]+" maxlength="10"  placeholder="Enter Name" required /></td>
 	</tr>
 	<tr>
 	<td>Sap Id: </td>
-	<td><input type="number" name="sapId" id="sapId" placeholder="Enter SapId"/></td>
+	<td><input type="number" name="sapId" id="sapId" pattern="[0-9]+" placeholder="Enter SapId" required/></td>
 	</tr>
 	<tr>
 	<td>
 	<button id="add" onclick="submit(event)" >Add </button>
 	</td>
 	</tr>
-	</table>
+	</table> -->
+	User Name: <input type="text" name="name" id="name" pattern="[A-Za-z0-9]+" maxlength="10"  placeholder="Enter Name" required />
+	
+	Sap Id:  <input type="number" name="sapId" id="sapId" pattern="[0-9]+" placeholder="Enter SapId" required/>
+	<button id="add" onclick="submit(event)" >Add </button>
+	
+	
+	
 	<hr>
 	<button onclick="getData()" class="form-load-button" >User List</button> 
 	

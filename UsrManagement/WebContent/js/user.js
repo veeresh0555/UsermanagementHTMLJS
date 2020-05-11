@@ -2,6 +2,16 @@ function submit() {
     console.log(event.type);
     var name = document.getElementById("name").value; 
     var sapId = document.getElementById("sapId").value;
+   
+    if(name=="" || name==null){
+    	alert("Please Enter User Name");
+    	return false;
+    }else if(sapId ==null || sapId ==""){
+    	alert("Please Enter Sap Id ");
+    	return false;
+    }
+    
+    
     var obj = {name : name, sapId : sapId};
     console.log(obj);
     var httpReq;
@@ -25,6 +35,11 @@ function submit() {
 
 /*get data*/
 function getData() {
+	var tableEl = document.getElementsByTagName('table');
+    if (tableEl[0] !== undefined) {
+        tableEl[0].remove()
+    }
+	
     var httpReq;
     if(window.XMLHttpRequest) {
         httpReq = new XMLHttpRequest();
@@ -51,6 +66,8 @@ function tablecreate(response){
 	var body = document.getElementsByTagName('body')[0];
 	var table = document.createElement('table');
 	table.setAttribute("border", "1");
+	
+	
     var tbody = document.createElement('tbody');
     var thead = document.createElement('thead');
     var headTr = document.createElement('tr');
@@ -158,6 +175,7 @@ function tablecreate(response){
     
     table.appendChild(thead);
     table.appendChild(tbody);
+    
     body.appendChild(table);
 	
 }

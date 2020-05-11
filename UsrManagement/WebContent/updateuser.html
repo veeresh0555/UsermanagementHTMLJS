@@ -32,6 +32,16 @@ document.getElementById("sapId").value=data.sapId;
 function update(){
 	var userName=document.getElementById("name").value;
 	var sapId=document.getElementById("sapId").value;
+	
+	 if(userName=="" || userName==null){
+	    	alert("Please Enter User Name");
+	    	return false;
+	    }else if(sapId ==null || sapId ==""){
+	    	alert("Please Enter Sap Id ");
+	    	return false;
+	    }
+	
+	
 	var obj1={name: userName,sapId: sapId};
 	console.log("Object: "+obj1);
 
