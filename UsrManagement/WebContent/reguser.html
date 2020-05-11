@@ -3,30 +3,52 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add user</title>
+<link href="css/user.css" rel="stylesheet">
 <script type="text/javascript" src="js/user.js"></script>
 </head>
 <body onload="getData()">
+<div class="header">
+<nav class="nav" id="nav">
+<a href="Home.html">Home</a>
+<a href="#">About</a>
+<a href="reguser.html" class="active">User Registration</a>
+<a href="#">Contact Us</a>
+<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+<i class="fa fa-bars"></i>
+</a>
+</nav>
+</div>
+
 <h2>Add User Information</h2>
-<!-- <table>
-	<tr>
-	<td>User Name: </td>
-	<td><input type="text" name="name" id="name" pattern="[A-Za-z0-9]+" maxlength="10"  placeholder="Enter Name" required /></td>
-	</tr>
-	<tr>
-	<td>Sap Id: </td>
-	<td><input type="number" name="sapId" id="sapId" pattern="[0-9]+" placeholder="Enter SapId" required/></td>
-	</tr>
-	<tr>
-	<td>
-	<button id="add" onclick="submit(event)" >Add </button>
-	</td>
-	</tr>
-	</table> -->
-	User Name: <input type="text" name="name" id="name" pattern="[A-Za-z0-9]+" maxlength="10"  placeholder="Enter Name" required />
-	
-	Sap Id:  <input type="number" name="sapId" id="sapId" pattern="[0-9]+" placeholder="Enter SapId" required/>
-	<button id="add" onclick="submit(event)" >Add </button>
-	
+	 <script type="text/javascript">
+	 var uname=document.createElement("input");
+	 uname.setAttribute("type", "text");
+	 uname.setAttribute("id", "name");
+	 uname.setAttribute("placeholder", "Enter Name");
+
+	 var spid=document.createElement("input");
+	 spid.setAttribute("type", "number");
+	 spid.setAttribute("id", "sapId");
+	 spid.setAttribute("placeholder", "Enter sapId");
+
+	 var abutton=document.createElement("button");
+	 abutton.setAttribute("class", "form-submit-button");
+	 abutton.appendChild(document.createTextNode("Add"));
+	 abutton.addEventListener("click",function(){
+		 submit(event);
+	 })
+
+	 var body = document.getElementsByTagName('body')[0];
+	 body.appendChild(uname);
+	 body.appendChild(spid);
+	 body.appendChild(abutton);
+
+	 
+	 
+	 </script>
+	 
+	 
+	 
 	
 	
 	<hr>

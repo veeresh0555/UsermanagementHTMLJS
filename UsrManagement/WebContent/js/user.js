@@ -65,7 +65,8 @@ function tablecreate(response){
 	
 	var body = document.getElementsByTagName('body')[0];
 	var table = document.createElement('table');
-	table.setAttribute("border", "1");
+	/*table.setAttribute("border", "1");*/
+	table.setAttribute("id", "users");
 	
 	
     var tbody = document.createElement('tbody');
@@ -121,6 +122,7 @@ function tablecreate(response){
         //delete
         var td4=document.createElement('td');
         var delbutton=document.createElement('button');
+        delbutton.setAttribute("class", "dbutton");
         delbutton.addEventListener("click",function(){
         	var data=this.parentElement.parentElement.cells;
         	var xmlhttp;
@@ -145,6 +147,7 @@ function tablecreate(response){
         //Update
         var td5=document.createElement('td');
         var updatebutton=document.createElement('button');
+        updatebutton.setAttribute("class", "ubutton");
         var updatebuttontxt=document.createTextNode("Update");
         updatebutton.addEventListener("click",function(){
         	//alert("Update");
