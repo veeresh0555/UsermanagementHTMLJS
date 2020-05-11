@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Update User Information</title>
+</head>
+<body>
+<button onclick="history.back()">Back</button>
+
+<h2>Update User Information</h2>
+<table>
+	<tr>
+	<td>User Name: </td>
+	<td><input type="text" name="name" id="name" placeholder="Enter Name"/></td>
+	</tr>
+	<tr>
+	<td>Sap Id: </td>
+	<td><input type="number" name="sapId" id="sapId" placeholder="Enter SapId"/></td>
+	</tr>
+	<tr>
+	<td>
+	<button id="update" onclick="update()" >Update </button>
+	</tr>
+	</table>
+
+
+<script type="text/javascript">
+var data=JSON.parse(localStorage.getItem("user"));
+console.log("data: "+data);
+document.getElementById("name").value=data.name;
+document.getElementById("sapId").value=data.sapId;
+function update(){
+	var userName=document.getElementById("name").value;
+	var sapId=document.getElementById("sapId").value;
+	var obj1={name: userName,sapId: sapId};
+	console.log("Object: "+obj1);
+
+	var xmlhttp;
+	if(window.XMLHttpRequest){
+	xmlhttp=new XMLHttpRequest();
+	}
+	xmlhttp.onreadystatechange= function(){
+		if(this.status === 200 && this.readyState===4){
+			alert("Updated Successfully");
+			history.back();
+		}
+	}
+	xmlhttp.open("PUT", "http://localhost:3000/user/"+data.id, true);
+	xmlhttp.setRequestHeader('Content-type','application/json');
+	xmlhttp.send(JSON.stringify(obj1));
+}
+</script>			
+
+
+
+</body>
+</html>
